@@ -18,7 +18,7 @@
 - «CarsCatalogAPI»;
 - «CarsCatalogAPI.Tests».
 
-![image](https://user-images.githubusercontent.com/56552046/214885050-29d3696a-853d-45cf-b999-3b3d0cd22a00.png)
+![image](https://user-images.githubusercontent.com/56552046/215064665-dd681106-7fdf-4d2b-8fcc-4e4f0b4c9c5b.png)
 
 В директории **Models** находится модель **«Car»** со следующими свойствами:
 - *int* Id (идентификатор)
@@ -44,7 +44,12 @@
 
 ### Сохранение запросов к сервису и вывод лога в API
 
-Для реализации сохранения запросов к сервису в базе данных и вывода лога в API был реализован и подключен middleware **«RequestResponseLoggerMiddleware»** (/Middlewares/RequestResponseLoggerMiddleware.cs)
+Для реализации сохранения запросов к сервису в базе данных и вывода лога в API был реализован и подключен middleware **«RequestResponseLoggerMiddleware»** (/Middlewares/RequestResponseLoggerMiddleware.cs). 
+
+Для сохранения запросов (и ответов) к сервису были созданы классы:
+- **«Request»** (/Models/Request.cs) - содержит поля запроса клиента;
+- **«Response»** (/Models/Response.cs) - содержит поля ответа сервера;
+- **«ResponseInfo»** (/Models/ResponseInfo.cs) - содержит классы **«Request»** и **«Response»**.
 
 ### Кэширование запросов
 
@@ -57,10 +62,10 @@
 Фронтенд для сервиса реализован на новом развивающимся фреймворке **Svelte.js**
 
 ### Unit тесты
-https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-7.0
+
 Проект **«CarsCatalogAPI.Tests»** содержит два класса:
 - **«CustomWebApplicationFactory»** - класс с настройкой подключения к базе данных из проекта **«CarsCatalogAPI»**, основанный на WebApplicationFactory<TEntryPoint>, который используется для создания тестового сервера (TestServer) для интеграционных тестов.
-- **«UnitTest»**.
+- **«UnitTest»** -  класс с Unit тестами.
 
 ### GraphQL для API
 
