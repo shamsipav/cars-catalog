@@ -29,13 +29,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<RequestResponseLoggerMiddleware>();
-
 app.UseCors(builder => builder
     .AllowAnyMethod()
     .AllowAnyHeader()
     .AllowCredentials()
     .SetIsOriginAllowed(origin => true));
+
+app.UseMiddleware<RequestResponseLoggerMiddleware>();
 
 app.UseHttpsRedirection();
 

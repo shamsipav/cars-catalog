@@ -1,5 +1,6 @@
 ﻿using CarsCatalogAPI.Data;
 using CarsCatalogAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -82,7 +83,7 @@ namespace CarsCatalogAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, Car car)
         {
-            var existCar = _carsDbContext.Cars.FirstOrDefault(x => x.id == id);
+            var existCar = _carsDbContext.Cars.FirstOrDefault(x => x.Id == id);
 
             if (existCar == null) return NotFound("Objest was not found");
 
@@ -102,6 +103,7 @@ namespace CarsCatalogAPI.Controllers
                 return Problem("Error");
             }
 
+            _cache.Remove("carsList");
             _cache.Remove("stats");
 
             return Ok("Success");
@@ -124,6 +126,7 @@ namespace CarsCatalogAPI.Controllers
                 return Problem("Error");
             }
 
+            _cache.Remove("carsList");
             _cache.Remove("stats");
 
             return Ok("Success");
