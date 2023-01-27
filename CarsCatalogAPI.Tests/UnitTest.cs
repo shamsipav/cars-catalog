@@ -19,17 +19,17 @@ namespace CarsCatalogAPI.Tests
             });
         }
 
-        [Fact]
-        public async Task GetSwaggerUI_Returns_OK()
+        [Theory]
+        [InlineData("/api/Cars")]
+        public async Task GetCarsList_Returns_OK(string url)
         {
-            var response = await _client.GetAsync("/swagger/index.html");
-
+            var response = await _client.GetAsync(url);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
         [Theory]
-        [InlineData("/api/Cars")]
-        public async Task GetCarsList_Returns_OK(string url)
+        [InlineData("/api/Stats")]
+        public async Task GetStats_Returns_OK(string url)
         {
             var response = await _client.GetAsync(url);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);

@@ -105,6 +105,7 @@ namespace CarsCatalogAPI.Controllers
 
             _cache.Remove("carsList");
             _cache.Remove("stats");
+            _cache.Remove(id);
 
             return Ok("Success");
         }

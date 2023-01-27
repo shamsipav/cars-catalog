@@ -26,9 +26,16 @@ namespace CarsCatalogAPI.Controllers
             if (stats == null)
             {
                 int objectCount = _carsDbContext.Cars.Count();
-                DateTime firstObjectAddedTime = _carsDbContext.Cars.OrderBy(e => e.CreateTime).FirstOrDefault().CreateTime;
-                DateTime lastObjectAddedTime = _carsDbContext.Cars.OrderBy(e => e.CreateTime).LastOrDefault().CreateTime;
-                stats = new Statistics { ObjectsCount = objectCount, FirstObjectAddedTime = firstObjectAddedTime, LastObjectAddedTime = lastObjectAddedTime };
+                if (objectCount > 0) 
+                {
+                    DateTime firstObjectAddedTime = _carsDbContext.Cars.OrderBy(e => e.CreateTime).FirstOrDefault().CreateTime;
+                    DateTime lastObjectAddedTime = _carsDbContext.Cars.OrderBy(e => e.CreateTime).LastOrDefault().CreateTime;
+                    stats = new Statistics { ObjectsCount = objectCount, FirstObjectAddedTime = firstObjectAddedTime, LastObjectAddedTime = lastObjectAddedTime };
+                } 
+                else
+                {
+                    return NotFound("There are no objects in the database");
+                }
 
                 if (stats != null)
                 {
