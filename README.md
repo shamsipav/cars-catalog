@@ -18,7 +18,7 @@
 - «CarsCatalogAPI»;
 - «CarsCatalogAPI.Tests».
 
-![image](https://user-images.githubusercontent.com/56552046/214885050-29d3696a-853d-45cf-b999-3b3d0cd22a00.png)
+![image](https://user-images.githubusercontent.com/56552046/215064665-dd681106-7fdf-4d2b-8fcc-4e4f0b4c9c5b.png)
 
 В директории **Models** находится модель **«Car»** со следующими свойствами:
 - *int* Id (идентификатор)
@@ -44,23 +44,30 @@
 
 ### Сохранение запросов к сервису и вывод лога в API
 
-Для реализации сохранения запросов к сервису в базе данных и вывода лога в API был реализован и подключен middleware **«RequestResponseLoggerMiddleware»** (/Middlewares/RequestResponseLoggerMiddleware.cs)
+Для реализации сохранения запросов к сервису в базе данных и вывода лога в API был реализован и подключен middleware **«RequestResponseLoggerMiddleware»** (/Middlewares/RequestResponseLoggerMiddleware.cs). 
+
+Для сохранения запросов (и ответов) к сервису были созданы классы:
+- **«Request»** (/Models/Request.cs) - содержит поля запроса клиента;
+- **«Response»** (/Models/Response.cs) - содержит поля ответа сервера;
+- **«ResponseInfo»** (/Models/ResponseInfo.cs) - содержит классы **«Request»** и **«Response»**.
 
 ### Кэширование запросов
 
 Кэшироване запросов реализовано с помощью класса **MemoryCache** (объект Microsoft.Extensions.Caching.Memory.IMemoryCache)
 
-### [TODO] Docker файл для для развертывания сервиса
+### Docker файл для для развертывания сервиса
+
+На текущий момент проверить развертывание сервиса в программе Docker Desktop не удалось из-за того, что программа не запускается на моём ПК
 
 ### Фронтенд для сервиса
 
 Фронтенд для сервиса реализован на новом развивающимся фреймворке **Svelte.js**
 
 ### Unit тесты
-https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-7.0
+
 Проект **«CarsCatalogAPI.Tests»** содержит два класса:
-- **«CustomWebApplicationFactory»** - класс с настройкой подключения к базе данных из проекта **«CarsCatalogAPI»**, основанный на WebApplicationFactory<TEntryPoint>, который используется для создания тестового сервера (TestServer) для интеграционных тестов.
-- **«UnitTest»**.
+- **«CustomWebApplicationFactory»** - класс с настройкой подключения к базе данных из проекта **«CarsCatalogAPI»**, основанный на **WebApplicationFactory<TEntryPoint>**, который используется для создания тестового сервера (**TestServer**) для интеграционных тестов.
+- **«UnitTest»** -  класс с Unit тестами.
 
 ### GraphQL для API
 
@@ -68,5 +75,3 @@ https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnet
 отвечающий за взаимодействие с таблицей **Cars** с помощью **GraphQL** (route: "/graphql").
 
 Для настройки **GraphQL** был создан интерфейс **«ICarRepository»** (/Repositories/CarRepository.cs) и класс **«CarRepository»** (/Repositories/CarRepository.cs), содержащий конструктор с инициализацией контекста базы данных, а также обновлена конфигурация в файле **Program.cs**
-
-
