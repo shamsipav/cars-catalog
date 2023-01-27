@@ -55,7 +55,9 @@
 
 Кэшироване запросов реализовано с помощью класса **MemoryCache** (объект Microsoft.Extensions.Caching.Memory.IMemoryCache)
 
-### [TODO] Docker файл для для развертывания сервиса
+### Docker файл для для развертывания сервиса
+
+На текущий момент проверить развертывание сервиса в программе Docker Desktop не удалось из-за того, что программа не запускается на моём ПК
 
 ### Фронтенд для сервиса
 
@@ -64,7 +66,7 @@
 ### Unit тесты
 
 Проект **«CarsCatalogAPI.Tests»** содержит два класса:
-- **«CustomWebApplicationFactory»** - класс с настройкой подключения к базе данных из проекта **«CarsCatalogAPI»**, основанный на WebApplicationFactory<TEntryPoint>, который используется для создания тестового сервера (TestServer) для интеграционных тестов.
+- **«CustomWebApplicationFactory»** - класс с настройкой подключения к базе данных из проекта **«CarsCatalogAPI»**, основанный на **WebApplicationFactory<TEntryPoint>**, который используется для создания тестового сервера (**TestServer**) для интеграционных тестов.
 - **«UnitTest»** -  класс с Unit тестами.
 
 ### GraphQL для API
