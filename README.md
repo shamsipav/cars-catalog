@@ -48,7 +48,19 @@
 
 ### Кэширование запросов
 
-Кэшироване запросов реализовано с помощью **MemoryCache** (объект Microsoft.Extensions.Caching.Memory.IMemoryCache)
+Кэшироване запросов реализовано с помощью класса **MemoryCache** (объект Microsoft.Extensions.Caching.Memory.IMemoryCache)
+
+### [TODO] Docker файл для для развертывания сервиса
+
+### Фронтенд для сервиса
+
+Фронтенд для сервиса реализован на новом развивающимся фреймворке **Svelte.js**
+
+### Unit тесты
+https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-7.0
+Проект **«CarsCatalogAPI.Tests»** содержит два класса:
+- «CustomWebApplicationFactory» - для связи с ;
+- «UnitTest».
 
 ### GraphQL для API
 
