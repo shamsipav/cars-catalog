@@ -73,5 +73,3 @@
 отвечающий за взаимодействие с таблицей **Cars** с помощью **GraphQL** (route: "/graphql").
 
 Для настройки **GraphQL** был создан интерфейс **«ICarRepository»** (/Repositories/CarRepository.cs) и класс **«CarRepository»** (/Repositories/CarRepository.cs), содержащий конструктор с инициализацией контекста базы данных, а также обновлена конфигурация в файле **Program.cs**
-
-
