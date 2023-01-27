@@ -30,8 +30,8 @@
 - *DateTime* UpdateTime (время обновления).
 
 В директории **Controllers** содержатся два контроллера:
-- «CarsController»;
-- «StatsController».
+- **«CarsController»**;
+- **«StatsController»**.
 
 В контроллере **«CarsController»** (route: "/api/cars") реализованы методы REST API:
 - GET(); // Вывод списка автомобилей
@@ -59,8 +59,8 @@
 ### Unit тесты
 https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-7.0
 Проект **«CarsCatalogAPI.Tests»** содержит два класса:
-- «CustomWebApplicationFactory» - для связи с ;
-- «UnitTest».
+- **«CustomWebApplicationFactory»** - класс с настройкой подключения к базе данных из проекта **«CarsCatalogAPI»**, основанный на WebApplicationFactory<TEntryPoint>, который используется для создания тестового сервера (TestServer) для интеграционных тестов.
+- **«UnitTest»**.
 
 ### GraphQL для API
 
