@@ -1,6 +1,6 @@
 ﻿using CarsCatalogAPI.Data;
 
-namespace CarsCatalogAPI.Classes
+namespace CarsCatalogAPI.Models
 {
     public class Statistics
     {

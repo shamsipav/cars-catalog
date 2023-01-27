@@ -1,5 +1,5 @@
-﻿using CarsCatalogAPI.Classes;
-using CarsCatalogAPI.Data;
+﻿using CarsCatalogAPI.Data;
+using CarsCatalogAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;

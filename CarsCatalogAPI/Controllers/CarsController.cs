@@ -1,5 +1,4 @@
-﻿using CarsCatalogAPI.Classes;
-using CarsCatalogAPI.Data;
+﻿using CarsCatalogAPI.Data;
 using CarsCatalogAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -19,7 +18,7 @@ namespace CarsCatalogAPI.Controllers
         }
 
         [HttpGet]
-        public List<Car> Get(string? brand)
+        public List<Car> Get()
         {
             _cache.TryGetValue("carsList", out List<Car>? carsList);
 
@@ -83,7 +82,7 @@ namespace CarsCatalogAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, Car car)
         {
-            var existCar = _carsDbContext.Cars.FirstOrDefault(x => x.LicensePlate == car.LicensePlate);
+            var existCar = _carsDbContext.Cars.FirstOrDefault(x => x.id == id);
 
             if (existCar == null) return NotFound("Objest was not found");
 
